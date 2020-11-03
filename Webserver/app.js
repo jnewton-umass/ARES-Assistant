@@ -3,9 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var submitRouter = require('./routes/submit');
+
+var uri = 'mongodb+srv://jnewton:Qwerty567@cctusers.t3lby.mongodb.net/ARES_Assistant?authSource=admin&replicaSet=atlas-97m9bu-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true';
+mongoose.connect(uri);
+var db = mongoose.connection;
 
 var app = express();
 
@@ -22,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/submit', submitRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

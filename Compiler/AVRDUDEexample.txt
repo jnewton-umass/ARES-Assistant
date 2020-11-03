@@ -1,0 +1,1 @@
+avrdude -p m2560 -c stk600 -e -U flash:w:{{filename of student's code}}

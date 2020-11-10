@@ -1,22 +1,37 @@
 body {
+  background-image: url('../images/SplashArt.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   text-align: center;
-  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.fieldback {
+  background-color: darkred;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
 h1 {
-  color: #15CDCA;
+  color: darkgoldenrod;
   font-size: 300%;
 }
 h3 {
-  color: #15CDCA;
+  color: darkgoldenrod;
   font-size: 300%;
 }
 p {
-  color: #4F80E2;
+  color: darkgoldenrod;
   font-size: 200%;
 }
 a {
-  color: #00ff00bb;
+  color: blue;
 }
 img {
   padding: 10px;

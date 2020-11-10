@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<div class="fieldback">
+    <nav>
+    <a href="/">Home</a> |
+    <a href="submit">Submit Code</a> |
+    <a href="grades">View Grades</a> |
+    </nav>
+</div>
+<body>
+    <div class="fieldback"><h1>Welcome to the submission page.</h1></div>
+    <form action="/submit", method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="userId" name="userId" value=""><br>
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="password" value=""><br>
+        <label for="code">Code:</label><br>
+        <input type="file" id="code" name="code" value=""><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+</body>
+</html>

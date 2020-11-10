@@ -1,11 +1,7 @@
-#include <avr/Arduino.h>
-#include <avr/SPI.h>
 int pwd = 20;
 void setup() {
     pinMode(LED_BUILTIN, OUTPUT);
-    pinMode(3, OUTPUT);
-    SPI.begin();
-    
+    pinMode(3, OUTPUT);    
 
 }
 

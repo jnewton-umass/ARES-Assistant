@@ -3,22 +3,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose')
-
+var mongoose = require('mongoose');
+var pug = require('pug');
+// connection string using mongoose:
+var uri = 'mongodb+srv://jnewton:gGtNgpMSUYgGpnNd@cctusers.t3lby.mongodb.net/ARES_Assistant?retryWrites=true&w=majority';
+mongoose.Promise = global.Promise
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true});
+//Access to various routers
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var submitRouter = require('./routes/submit');
-
-var uri = 'mongodb+srv://jnewton:Qwerty567@cctusers.t3lby.mongodb.net/ARES_Assistant?authSource=admin&replicaSet=atlas-97m9bu-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true';
-mongoose.connect(uri);
-var db = mongoose.connection;
+var testRouter = require('./routes/test');
+var regRouter = require('./routes/register');
+var loginRouter = require('./routes/login');
+var welcomeRouter = require('./routes/welcome');
+var statusRouter = require('./routes/status');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.html', require('ejs').__express);
-app.set('view engine', 'html');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -26,9 +30,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Various Routes can go here
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/submit', submitRouter);
+app.use('/users/register', usersRouter);
+app.use('/users/login', usersRouter);
+app.use('/register', regRouter);
+app.use('/login', loginRouter);
+app.use('/welcome', welcomeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

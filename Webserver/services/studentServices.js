@@ -1,7 +1,5 @@
-const FILE_NAME = "userService.js";
 const CONSTANTS = require("../constants/constants");
-const studentDao = require('../dataOps/studentDataOps')
-
+const studentDao = require('../dataOps/studentDataOps');
 const errorObj = {}
 
 async function register(req) {

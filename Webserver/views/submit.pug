@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 Welcome #{userId}
+    form(action="/submit", method="POST")
+        label Username: 
+            input(type="text" id="userId" name="userId" value="#{userId}")
+        br
+        br
+        label Password: 
+            input(type="text" id="password" name="password" value="#{pass}")
+        br
+        br
+        label Github Link: 
+            input(type="text" id="git" name="git" value="git")
+        br
+        br
+        label 
+            input(type="submit" value="Run Test")

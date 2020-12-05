@@ -5,6 +5,6 @@ const studentSchema = new Schema ({
     userId: {type: String, unique: true, index: true},
     password: {type: String},
     createdAt: {type: Date}
-})
+});
 
-module.exports = mongoose.model('student', studentSchema)
+module.exports = mongoose.model('student', studentSchema);

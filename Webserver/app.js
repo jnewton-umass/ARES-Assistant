@@ -12,11 +12,10 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true});
 //Access to various routers
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var testRouter = require('./routes/test');
 var regRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
-var welcomeRouter = require('./routes/welcome');
-var statusRouter = require('./routes/status');
+var gradeRouter = require('./routes/grades');
+var submitRouter = require('./routes/submit');
 
 var app = express();
 
@@ -37,7 +36,9 @@ app.use('/users/register', usersRouter);
 app.use('/users/login', usersRouter);
 app.use('/register', regRouter);
 app.use('/login', loginRouter);
-app.use('/welcome', welcomeRouter);
+app.use('/submit', submitRouter);
+app.use('/grades', gradeRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

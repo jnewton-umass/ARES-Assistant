@@ -9,7 +9,7 @@ router.post('/register',async function(req, res, next) {
     .then(result => {
       res.status(constants.ERROR_CODES.SUCCESS);
       console.log(result);
-      res.render('welcome', result);
+      res.render('submit', result);
     })
     .catch(error => {
       res.status(constants.ERROR_CODES.FAILED);
@@ -18,7 +18,7 @@ router.post('/register',async function(req, res, next) {
 });
 
 router.post('/login',async function(req, res, next) {
-  var user = await studentServices.login(req)
+  await studentServices.login(req)
     .then(result => {
       if (result == null) {
         theError = "invalid username or password";
@@ -27,7 +27,7 @@ router.post('/login',async function(req, res, next) {
       }
       else {
         res.status(constants.ERROR_CODES.SUCCESS);
-        res.render('welcome', result);
+        res.render('submit', result);
       }
     })
     .catch(error => {
